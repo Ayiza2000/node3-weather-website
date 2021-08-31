@@ -2,19 +2,19 @@
 
 
 
-fetch('/weather?address=!').then((response) => {
-    response.json().then((data)=>{
-if (data.errormsg){
- console.log(data.errormsg)
-}
-else{
-console.log('Location',data.location)
-console.log('Forecast',data.forecast)
+// fetch('http://localhost:3000/weather?address=!').then((response) => {
+//     response.json().then((data)=>{
+// if (data.errormsg){
+//  console.log(data.errormsg)
+// }
+// else{
+// console.log('Location',data.location)
+// console.log('Forecast',data.forecast)
 
-}
-    })
+// }
+//     })
 
-})
+// })
 
 const  weatherform= document.querySelector('form')
 const  search=document.querySelector('input')
@@ -34,7 +34,7 @@ weatherform.addEventListener('submit', (e)=>{
     }
     messageOne.textContent='Loading...'
     messageTwo.textContent=''
-    fetch('http://localhost:3000/weather?address='+location).then((response) => {
+    fetch('/weather?address='+location).then((response) => {
         response.json().then((data)=>{
     if (data.errormsg){
         messageOne.textContent=data.errormsg
